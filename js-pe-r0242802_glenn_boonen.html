@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>R0242802 JS PE opdracht</title>
+    <link rel="stylesheet" href="icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>Registreer</h1>
+    <h2>Meld je aan bij Anoroc Services, wij beschermen jouw software tegen malware!</h2>
+    <form class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <label for="inputVoornaaam" class="form-label">Voornaam</label>
+                    <input type="text" class="form-control" id="inputVoornaam">
+                </div>
+                <div class="col-md">
+                    <label for="inputNaam" class="form-label">Naam</label>
+                    <input type="text" class="form-control" id="inputNaam">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <label for="inputGebruikersNaam" class="form-label">Gebruikersnaam</label>
+                    <input type="text" class="form-control" id="inputGebruikersNaam">
+                </div>
+                <div class="col-md">
+                    <label for="inputEmailadres" class="form-label">E-mailadres</label>
+                    <input type="email" class="form-control" id="inputEmailadres">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <label for="inputWachtwoord" class="form-label">Wachtwoord</label>
+                    <input type="password" class="form-control" id="inputWachtwoord">
+                </div>
+                <div class="col-md">
+                    <label for="inputHerhaalWachtwoord" class="form-label">Herhaal wachtwoord</label>
+                    <input type="text" class="form-control" id="inputHerhaalWachtwoord">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <label for="inputAdres" class="form-label">Adres</label>
+                    <input type="password" class="form-control" id="inputAdres" placeholder="Uw adres en huisnummer">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <label for="inputLand" class="form-label">Land</label>
+                    <select id="inputLand" class="form-select">
+                        <option selected>Belgie</option>
+                        <option>Nederland</option>
+                        <option>Frankrijk</option>
+                        <option>Duitsland</option>
+                    </select>
+                </div>
+
+                <div class="col-md">
+                    <label for="inputProvincie" class="form-label">Provincie</label>
+                    <select id="inputProvincie" class="form-select">
+                        <option selected>Antwerpen</option>
+                        <option>Henegouwen</option>
+                        <option>Limburg</option>
+                        <option>Luik</option>
+                        <option>Luxemburg</option>
+                        <option>Namem</option>
+                        <option>Oost-Vlaanderen</option>
+                        <option>Vlaams-Brabant</option>
+                        <option>Waals-Brabant</option>
+                        <option>West-Vlaanderen</option>
+                    </select>
+                </div>
+                <div class="col-md">
+                    <label for="inputPostcode" class="form-label">Postcode</label>
+                    <input type="text" class="form-control" id="inputPostcode">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <h2>Hou me op de hoogte</h2>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="CheckNieuwsbrief">
+                        <label class="form-check-label" for="CheckNieuwsbrief">Inschrijven voor onze nieuwsbrief</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="CheckAkkoord">
+                        <label class="form-check-label" for="CheckAkkoord">Ik ga akkoord met de algemene voorwaarden</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <h2>Betaling</h2>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioBetaling" id="radioBetaling1" checked>
+                        <label class="form-check-label" for="RadioBetaling1">Banking app</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioBetaling" id="radioBetaling2">
+                        <label class="form-check-label" for="RadioBetaling2">Overschrijving</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioBetaling" id="radioBetaling3">
+                        <label class="form-check-label" for="RadioBetaling3">Visa card</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioBetaling" id="radioBetaling4">
+                        <label class="form-check-label" for="radioBetaling4">Paypal</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <button type="submit" class="btn btn-primary" onclick="onclickInzenden()">Wave your magic wand</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div id="melding">
+                        <!--placeholder-->
+                    </div>
+                    <div id="betaling">
+                        <!--placeholder-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        let errors = [];
+        const inputVoornaam = document.querySelector('#inputVoornaam');
+        const inputNaam = document.querySelector('#inputNaam');
+        const inputGebruikersNaam = document.querySelector('#inputGebruikersNaam');
+        const inputEmailAdres = document.querySelector('#inputEmailadres');
+        const inputWachtwoord = document.querySelector('#inputWachtwoord');
+        const inputHerhaalWachtwoord = document.querySelector('#inputHerhaalWachtwoord');
+        const inputAdres = document.querySelector('#inputAdres');
+        const inputLand = document.querySelector('#inputLand');
+        const inputProvincie = document.querySelector('#inputProvincie');
+        const inputPostcode = document.querySelector('#inputPostcode');
+        const radioBetaling = document.querySelector('input[name="radioBetaling"]:checked').value;
+        const melding = document.querySelector('#melding');
+        const betaling = document.querySelector('#betaling');
+
+        function onclickInzenden() {
+            //constants
+            const meldingSuccess = "<div class=\"alert alert-success\" role=\"alert\"><h4 class=\"alert-heading\">Goed gedaan</h4><p>Je werd geregistreerd.</p></div>";
+            const meldingFoutBegin = "<div class=\"alert alert-danger\" role=\"alert\"><h4 class=\"alert-heading\">Yikes, errors...</h4><p>";
+            const MeldingFoutEind = "</p></div>";
+            const meldingBetalingBegin = "<div class=\"alert alert-primary\" role=\"alert\"><h4 class=\"alert-heading\">Betalingswijze</h4><p>Je betalingswijze is ";
+            const MeldingBetalingEind = ".</p></div>";
+            //reset fouten
+            errors = [];
+            //invoercontrole
+            checkemptyfield(inputVoornaam.value, "Het veld voornaam is vereist");
+            checkemptyfield(inputNaam.value, "Het veld naam is vereist");
+            checkemptyfield(inputGebruikersNaam.value, "Het veld gebruikersnaam is vereist");
+            checkemptyfield(inputAdres.value, "Het veld adres is vereist");
+            checkemptyfield(inputLand.value, "Het veld land is vereist");
+            checkemptyfield(inputProvincie.value, "Het veld provincie is vereist");
+            validateEmail(inputEmailAdres.value);
+            validatePassword(inputWachtwoord.value, inputHerhaalWachtwoord.value);
+            checkPC(inputPostcode.value);
+
+
+            //toon melding
+            if (errors.length > 0) {
+                //fouten opsommen
+                let fouten = "<ul>";
+                for (let i = 0; i < errors.length; i++) {
+                    fouten += "<li>" + errors[i] + "</li>";
+                }
+                fouten += "</ul>";
+                melding.textContent = meldingFoutBegin + fouten + MeldingFoutEind;
+            } else {
+                melding.textContent = meldingSuccess;
+                validatePayment(radioBetaling);
+            }
+
+        };
+
+        function checkemptyfield(veld, melding) {
+            if (veld === "") {
+                errors.push(melding)
+            };
+        };
+
+        function validateEmail(emailadres) {
+            let fout = true;
+            if (emailadres.includes("@")) {
+                let emailarray = emailadres.split("@");
+                if (emailarray.length == 2) {
+                    //check domein
+                    if (emailarray[1].toLowerCase.match(/[a-z|1-9|.|-]/i)) {
+                        if (emailarray[1].CharAt(0).toLowerCase.match(/[a-z|1-9]/i)) {
+                            //check username
+                            if (emailarray[0].toLowerCase.match(/[a-z|1-9|.|-|_]/i)) {
+                                if (emailarray[0].CharAt(0).toLowerCase.match(/[a-z|1-9]/i)) {
+                                    fout = false;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+            if (fout) {
+                errors.push("E-mailadres is niet correct.");
+            }
+            return fout;
+        };
+
+        function validatePassword(wachtwoord, herhaalWachtwoord) {
+            let fout = true;
+            if (!wachtwoord === "" && !herhaalWachtwoord === "") {
+                if (wachtwoord === herhaalwachtwoord) {
+                    if (wachtwoord.length > 7) {
+                        fout = false;
+                    } else {
+                        errors.push("Wachtwoord is te kort.");
+                    };
+                } else {
+                    errors.push("Wachtwoorden zijn niet gelijk.");
+                };
+            } else {
+                errors.push("Wachtwoord is niet ingevuld.");
+            };
+            return fout;
+        };
+
+        function validatePayment(veld) {
+            betaling.textContent = meldingBetalingBegin + veld + MeldingBetalingEind;
+        };
+
+        function checkPC(veld) {
+            if (veld === "") {
+                errors.push("Postcode is niet ingevuld.");
+            } else {
+                if (veld < 1000 || veld > 9999) {
+                    errors.push("Postcode moet tussen 1000 en 9999 liggen.");
+                };
+            };
+        };
+    </script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
